@@ -32,7 +32,7 @@ export function BlogListItem(props: { blog: any; }) {
     name: string,
     uuid: string
   }
-  
+
   const [isShown, setIsShown] = useState(false);
 
   const [imgUrl, setImgUrl] = useState();
@@ -90,7 +90,7 @@ export function BlogListItem(props: { blog: any; }) {
 
   const onSubmit = async (event: Event | undefined, blog: Blog) => {
     let currentDate = new Date().toJSON().slice(0, 10);
-     //console.log('blog:',blog)
+    //console.log('blog:',blog)
     event?.preventDefault();
     await setDoc(doc(db, "blogs", blog.id), {
       uuid: blog.id,
@@ -121,26 +121,26 @@ export function BlogListItem(props: { blog: any; }) {
           <div className="font-bold ">sana:<p className=" text-blue-500">{blog.date}</p></div>
           <p>Yangilik mavzusi: {blog.name}</p>
           <text className="object-contain h-48 w-48">Yangilik matni: {blog.message}</text>
-          <br/>
-          <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2" onClick={() => handleClick(blog)}>change</button>
+          <br />
+          <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2" onClick={() => handleClick(blog)}>O&apos;zgartirish</button>
           {isShown && (
             <div className='flex flex-col justify-center'>
               <input onChange={() => handleSubmit(event, blog.imageUrl)} type='file' />
               <input className="border-1 text-black" value={name} onChange={e => setName(e.target.value)} type='text' placeholder="name" />
               <input className="border-1 text-black" value={text} onChange={e => setText(e.target.value)} type='text' placeholder="Text" />
-              <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2 w-16 text-center justify-center flex"  onClick={() => onSubmit(event, blog)} type='submit'>Upload</button>
+              <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2 w-16 text-center justify-center flex" onClick={() => onSubmit(event, blog)} type='submit'>Upload</button>
               {
-                    !imgUrl &&
-                    <div className='outerbar'>
-                         <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
-                <div className="bg-blue-600 h-1.5 rounded-full dark:bg-blue-500 " style={{ width: progresspercent + "%" }}>{progresspercent}%</div>
-                    </div>
-                    </div>
+                !imgUrl &&
+                <div className='outerbar'>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
+                    <div className="bg-blue-600 h-1.5 rounded-full dark:bg-blue-500 " style={{ width: progresspercent + "%" }}>{progresspercent}%</div>
+                  </div>
+                </div>
 
-                }
+              }
             </div>
 
-            
+
           )}
 
           {/* 👇️ show component on click */}
@@ -172,7 +172,7 @@ export function BlogList() {
 
   return (
     <section className="">
-      
+
 
       {loading &&
         <p>loading...</p>

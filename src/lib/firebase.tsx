@@ -23,6 +23,7 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 
 import { getDocs, collection } from "firebase/firestore";
+import { ReactNode } from "react";
 
 
 const collection_name = "blogs"
@@ -30,15 +31,24 @@ const collection_name = "blogs"
 export const findAll = async () => {
     const doc_refs = await getDocs(collection(db, collection_name))
 
-    const res: { id: string; }[] = []
+    const res: {
+        message: string;
+        date: string;
+        imageUrl: string;
+        name: string;
+        id: string;
+    }[] = []
 
     doc_refs.forEach(blog => {
-        res.push({
+        return res.push({
             id: blog.id,
-            ...blog.data()
-
-        })
+            ...blog.data(),
+            message: "",
+            date: "",
+            imageUrl: "",
+            name: ""
+        });
     })
-     //console.log(res)
+    //console.log(res)
     return res
 }
