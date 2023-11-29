@@ -1,18 +1,7 @@
 import Image from "next/image"
 import { Suspense } from "react"
 import Direktor from "../../../public/direktor.jpg";
-import Y1 from "../../../public/vrach1.jpg";
-import Y2 from "../../../public/vrach2.jpg";
-import Y3 from "../../../public/vrach3.jpg";
-import Y4 from "../../../public/vrach4.jpg";
-import Y5 from "../../../public/vrach5.jpg";
-import Y6 from "../../../public/vrach6.jpg";
-import Y7 from "../../../public/vrach7.jpg";
-import Y8 from "../../../public/vrach8.jpg";
-import Y9 from "../../../public/vrach9.jpg";
-import Y10 from "../../../public/vrach10.jpg";
-import Y11 from "../../../public/vrach11.jpg";
-import Y12 from "../../../public/vrach12.jpg";
+
 export default function Gallery() {
     return (
         <>
@@ -103,73 +92,6 @@ export default function Gallery() {
 }
 
 
-export function Gallery2(){
-    return(
-        <>
-            <div className="bg-gray-100 md:p-16 mt-20">
-                <div className="container mx-auto">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-
-                        <a href="#"
-                            className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5">
-                            <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
-                                Frontend Performance
-                            </span>
-                            <span className="text-sm leading-normal text-gray-400 sm:block">
-                                Detailed list of best practices to improve your frontend performance
-                            </span>
-                        </a>
-                        <a href="#"
-                            className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5">
-                            <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
-                                API Security
-                            </span>
-                            <span className="text-sm leading-normal text-gray-400 sm:block">
-                                Detailed list of best practices to make your APIs secure
-                            </span>
-                        </a>
-                        <a href="#"
-                            className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5">
-                            <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
-                                Code Reviews
-                            </span>
-                            <span className="text-sm leading-normal text-gray-400 sm:block">
-                                Detailed list of best practices for effective code reviews and quality
-                            </span>
-                        </a>
-                        <a href="#"
-                            className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5">
-                            <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
-                                AWS
-                            </span>
-                            <span className="text-sm leading-normal text-gray-400 sm:block">
-                                Detailed list of best practices for Amazon Web Services (AWS)
-                            </span>
-                        </a>
-                        <a href="#"
-                            className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5">
-                            <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
-                                AWS
-                            </span>
-                            <span className="text-sm leading-normal text-gray-400 sm:block">
-                                Detailed list of best practices for Amazon Web Services (AWS)
-                            </span>
-                        </a>
-                        <a href="#"
-                            className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5">
-                            <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
-                                AWS
-                            </span>
-                            <span className="text-sm leading-normal text-gray-400 sm:block">
-                                Detailed list of best practices for Amazon Web Services (AWS)
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
 
 
 export function Gallery3(){
@@ -180,80 +102,10 @@ export function Gallery3(){
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4 max-w-[720px]">
                 <div>
                     <Image className="hover:opacity-75" src={Direktor} alt={""} width={250} height={250}/>
-                    <h3 className=" font-semibold">Tursunov Baxrom Sagdullayevich</h3>
+                    <h3 className=" font-semibold">KODIROV SAN'AT SALIMOVICH</h3>
                     <p className="text-gray-500">Bosh shifokor</p>
-                    <p className="text-gray-500">Qabul vaqti 13:00-16:00</p>    
+                    <p className="text-gray-500">Qabul vaqti 8:00-18:00</p>    
                 </div>
-            
-                <div>
-                    <Image className="hover:opacity-75" src={Y1} alt={""} width={250} height={250}/>
-                    <h3 className=" font-semibold">Mamatkulov Qaxramon Sharopboyevich</h3>
-                    <p className="text-gray-500">Gepatolog</p>
-                    <p className="text-gray-500">Qabul vaqti 08:00-14:00</p>
-                </div>
-            <div>
-                 <Image className="hover:opacity-75" src={Y2} alt={""} width={250} height={250}/>
-                 <h3 className=" font-semibold">Boyoturayev Sherzod</h3>
-                    <text><br/></text>
-            </div>
-             <div>
-                 <Image className="hover:opacity-75" src={Y3} alt={""} width={250} height={250}/>
-                  <h3 className=" font-semibold">Xomidov Faxriddin</h3>
-                    <p className="text-gray-500"></p>
-            </div>
-             <div>
-                <Image className="hover:opacity-75" src={Y4} alt={""} width={225} height={225}/>
-                 <h3 className=" font-semibold">Asrorkulov Umedjon</h3>
-                    <p className="text-gray-500"></p>
-            </div>
-             <div>
-                <Image className="hover:opacity-75" src={Y5} alt={""} width={250} height={250}/>
-                 <h3 className=" font-semibold">Salomatova Sanobar Shodmonovna</h3>
-                    <p className="text-gray-500"></p>
-            </div>
-            <div>
-                <Image className="hover:opacity-75" src={Y6} alt={""} width={250} height={250}/>
-                 <h3 className=" font-semibold">Mamatkulov Safarali Ashirkulovich</h3>
-                    <p className="text-gray-500"></p>
-            </div>
-           
-           <div>
-                <Image className="hover:opacity-75" src={Y7} alt={""} width={250} height={250}/>
-                 <h3 className=" font-semibold">Allanazaro Sayfulla Suyarkulovich</h3>
-                    <p className="text-gray-500"></p>
-            </div>
-           
-           <div>
-                <Image className="hover:opacity-75" src={Y8} alt={""} width={250} height={250}/>
-                 <h3 className=" font-semibold">Jurayeva Manzura Nabiyevna</h3>
-                    <p className="text-gray-500"></p>
-            </div>
-            <div>
-                <Image className="hover:opacity-75" src={Y9} alt={""} width={250} height={250}/>
-                 <h3 className=" font-semibold">Achildiyev Abduvali Soibnazarovich</h3>
-                    <p className="text-gray-500"></p>
-            </div>
-            <div>
-                <Image className="hover:opacity-75" src={Y10} alt={""} width={250} height={250}/>
-                 <h3 className=" font-semibold">Berdiyev Muxammad koraboyevich</h3>
-                    <p className="text-gray-500"></p>
-            </div>
-            <div>
-                <Image className="hover:opacity-75" src={Y11} alt={""} width={250} height={250}/>
-                 <h3 className=" font-semibold">Shavkat jurayev Kurbonovich
-</h3>
-                    <p className="text-gray-500">pediatr infeksionist</p>
-                    <p className="text-gray-500">Qabul vaqti 14:00-16:00</p>  
-            </div>
-           <div>
-                <Image className="hover:opacity-75" src={Y12} alt={""} width={250} height={250}/>
-                 <h3 className=" font-semibold">Mirzayeva Maxbuba Chuliboyevna</h3>
-                    <p className="text-gray-500"></p>
-            </div>
-           
-           
-            
-            
             </div>
         </Suspense>
         </>

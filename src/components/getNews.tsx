@@ -3,6 +3,7 @@ import { findAll } from "@/lib/firebase";
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
 import  Image  from "next/image";
+import Link from "next/link";
 
 export interface Blog {
     date: string,
@@ -20,15 +21,15 @@ export function BlogListItem(props: { blog: Blog }) {
   return (
     <div className="">
       {blog.imageUrl ?
-        <div className="border-red-800 border-2 hover:bg-gray-100">
-          <Image className="object-contain h-48 w-96 p-2" loading="lazy"  src={blog.imageUrl} width={300} height={300} alt="img" />
+        <Link href={`news/${blog.id}`} className=" hover:bg-gray-100">
+          <Image className="object-contain mx-auto h-48 w-96 p-2" loading="lazy"  src={blog.imageUrl} width={300} height={300} alt="img" />
           <div className="font-semibold text-blue-500">{blog.date}</div>
-          <p className="font-bold object-contain h-20">{blog.name}</p>
-          <p className="object-contain h-48"> {blog.message.substring(0, 90)}...</p>
+          <p className="font-bold object-contain h-auto">{blog.name}</p>
+          <p className="object-contain h-28"> {blog.message.substring(0, 90)}...</p>
           
           {/* 👇️ show component on click */}
           {/* {isShown && <>texrt</>} */}
-        </div> :
+        </Link> :
         <Loader />
       }
     </div>
@@ -61,7 +62,7 @@ export function GetNews() {
         <p>loading...</p>
       }
 
-      <ul className="grid grid-cols-1 gap-4 p-4 text-center sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-1 gap-4 p-4 text-center sm:grid-cols-2 lg:grid-cols-2">
         {countries.length > 0 && countries.map((blog, id) => (
             //@ts-ignore
  <BlogListItem key={id} blog={blog} />

@@ -1,4 +1,4 @@
-import Gallery, { Gallery2, Gallery3 } from "@/components/gallery/Gallery"
+import Gallery, { Gallery3 } from "@/components/gallery/Gallery"
 import Image from "next/image"
 import bg from "../../public/page-bg.jpg";
 import Carusel from "@/components/carusel";

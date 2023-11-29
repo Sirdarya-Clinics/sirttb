@@ -7,6 +7,7 @@ import Y2 from "../../public/bg2.jpg";
 import Y3 from "../../public/bg3.jpg";
 import Y4 from "../../public/bg4.jpg";
 import Y5 from "../../public/bg5.jpg";
+import Y6 from "../../public/sir-ttb.jpg";
 import { Component } from "react";
 import Image from "next/image";
 
@@ -16,6 +17,10 @@ export default class NextJsCarousel extends Component {
         return ( 
             <div className=""> 
               <Carousel infiniteLoop={true} autoPlay={true} showThumbs={false}> 
+               <div> 
+                      <Image src={Y6} alt="image2" /> 
+                     
+                  </div> 
                   <div> 
                       <Image src={Y1} alt="image2" /> 
                      
@@ -39,6 +44,10 @@ export default class NextJsCarousel extends Component {
                       <Image src={Y5} alt="image3"/> 
                      
   
+                  </div> 
+                  <div> 
+                      <Image src={Y6} alt="image2" /> 
+                     
                   </div> 
                   <div> 
                       <Image src={Y1} alt="image2" /> 

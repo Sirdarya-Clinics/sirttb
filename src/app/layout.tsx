@@ -15,9 +15,9 @@ export const fontSans = FontSans({
 })
 
 export const metadata: Metadata = {
-  title: 'Sirdaryo viloyat yuqumli kasalliklar shifoxonasi',
-  description: 'Sirdaryo viloyat yuqumli kasalliklar shifoxonasi',
-  keywords: ['yuksh', 'sogliqni saqlash', 'sirdaryo', 'tibbiyot', 'salomatlik', 'bolnitsa sirdaryo', 'bolnitsa', 'klinika', 'yuqumli', 'kasalliklar', 'viloyat', "infeksion", "infeksionniy", "yuqumli kasalliklar, shifoxona"],
+  title: 'Sirdaryo tuman tibbiyot birlashmasi',
+  description: 'Sirdaryo viloyat Sirdaryo tuman tibbiyot birlashmasi',
+  keywords: ['ttb', 'sogliqni saqlash', 'sirdaryo', 'tibbiyot', 'salomatlik', 'bolnitsa sirdaryo', 'bolnitsa', 'klinika', 'kasalliklar', 'viloyat', "infeksion", "sirdaryo tuman", "tibbiyot birlashmasi", "Sirdaryo tuman tibbiyot birlashmasi"],
 }
 
 export default function RootLayout({

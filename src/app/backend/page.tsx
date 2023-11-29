@@ -119,16 +119,14 @@ export function BlogListItem(props: { blog: any; }) {
         <div className="border-red-800 border-4">
           <Image className="object-contain h-48 w-96 p-2" loading="lazy" src={blog.imageUrl} width={300} height={300} alt="img" />
           <div className="font-bold ">sana:<p className=" text-blue-500">{blog.date}</p></div>
-          <p>Yangilik mavzusi: {blog.name}</p>
-          <text className="object-contain h-48 w-48">Yangilik matni: {blog.message}</text>
+          <p><p className=" font-bold">Yangilik mavzusi:</p> {blog.name}</p>
+          <text className="object-contain h-48 w-48">
+            <p className=" font-bold">Yangilik matni:</p> {blog.message}</text>
           <br />
           <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2" onClick={() => handleClick(blog)}>O&apos;zgartirish</button>
           {isShown && (
             <div className='flex flex-col justify-center'>
-              <input onChange={() => handleSubmit(event, blog.imageUrl)} type='file' />
-              <input className="border-1 text-black" value={name} onChange={e => setName(e.target.value)} type='text' placeholder="name" />
-              <input className="border-1 text-black" value={text} onChange={e => setText(e.target.value)} type='text' placeholder="Text" />
-              <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2 w-16 text-center justify-center flex" onClick={() => onSubmit(event, blog)} type='submit'>Upload</button>
+              <label className="hover:bg-blue-200 bg-blue-100 p-2 rounded-md mx-auto border-1 text-black m-2" htmlFor="inputField">Rasm yuklash</label>
               {
                 !imgUrl &&
                 <div className='outerbar'>
@@ -138,6 +136,11 @@ export function BlogListItem(props: { blog: any; }) {
                 </div>
 
               }
+              <input className="hidden" onChange={() => handleSubmit(event, blog.imageUrl)} id="inputField" type='file' aria-label="rasm kiriting" accept=".jpg, .jpeg, .png" />
+              <input className="border-1 m-2 text-black h-8" value={name} onChange={e => setName(e.target.value)} type='text' placeholder="yangilik nomi" />
+              <input className="border-1 m-2 text-black h-8" value={text} onChange={e => setText(e.target.value)} type='text' placeholder="yangilik matni" />
+              <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2  mx-auto" onClick={() => onSubmit(event, blog)} type='submit'>serverga joylash</button>
+              
             </div>
 
 
@@ -164,6 +167,7 @@ export function BlogList() {
 
     setCountries([...res])
     setLoading(false)
+   
   }
 
   useEffect(() => {

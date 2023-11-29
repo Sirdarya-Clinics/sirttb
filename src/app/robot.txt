@@ -1,6 +1,6 @@
 User-Agent: *
 Allow: /
 Disallow: /private/
-Disallow: /admin/
+Disallow: /backend/
 
-Sitemap: https://sirdaryo-yuksh.uz/sitemap.xml
+Sitemap: https://sirdaryo-ttb.uz/sitemap.xml

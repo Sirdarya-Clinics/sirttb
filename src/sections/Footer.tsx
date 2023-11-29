@@ -12,9 +12,7 @@ return(
                         <li>
                             <a href="#rahbariyat" className="mr-4 hover:underline md:mr-6">Rahbariyat</a>
                         </li>
-                        <li>
-                            <a href="#hujjatlar" className="mr-4 hover:underline md:mr-6 ">Hizmatlar narxlari</a>
-                        </li>
+                        
                         <li>
                             
                             <a href="#kontaktlar" className="hover:underline">Kontaktlar</a>
