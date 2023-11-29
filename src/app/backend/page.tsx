@@ -22,7 +22,7 @@ export default function BackendPage() {
 }
 
 
-export function BlogListItem(props: { blog: any; }) {
+function BlogListItem(props) {
 
   interface Blog {
     date: string,
@@ -156,7 +156,7 @@ export function BlogListItem(props: { blog: any; }) {
 }
 
 
-export function BlogList() {
+function BlogList() {
   const [loading, setLoading] = useState(false)
   const [countries, setCountries] = useState([{}])
 
