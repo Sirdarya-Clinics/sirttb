@@ -2,8 +2,10 @@
 
 import ImageUploader from "@/components/ImageUploader"
 import Loader from "@/components/Loader"
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { db, findAll, storage } from "@/lib/firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { deleteDoc, doc, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Image from "next/image";
 import { useState, useEffect } from 'react'
@@ -13,9 +15,9 @@ export default function BackendPage() {
 
 
   return (
-    <main className="flex  min-h-screen flex-col items-center justify-center">
+    <main className="flex flex-col items-center justify-center w-auto">
       <ImageUploader />
-      <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2" onClick={() => findAll()}>get all blogs</button>
+      
       <BlogList />
     </main>
   )
@@ -113,41 +115,51 @@ function BlogListItem(props) {
 
   const { blog } = props
   // console.log(blog)
+
+  const handleDelete = async (id: string) => {
+    const taskDocRef = doc(db, 'blogs', id)
+    try{
+      await deleteDoc(taskDocRef)
+    } catch (err) {
+      alert(err)
+    } finally{
+      alert('yangi ozgarishlarni korish uchun saxifani yangilang!')
+    }
+  }
   return (
     <li className="">
       {blog.imageUrl ?
-        <div className="border-red-800 border-4">
-          <Image className="object-contain h-48 w-96 p-2" loading="lazy" src={blog.imageUrl} width={300} height={300} alt="img" />
+        <div className="content-center max-w-xl gap-5">
+          <Image className="object-contain sm:ml-24 h-96 w-96" loading="lazy" src={blog.imageUrl} width={300} height={300} alt="img" />
           <div className="font-bold ">sana:<p className=" text-blue-500">{blog.date}</p></div>
           <p><p className=" font-bold">Yangilik mavzusi:</p> {blog.name}</p>
           <text className="object-contain h-48 w-48">
-            <p className=" font-bold">Yangilik matni:</p> {blog.message}</text>
+            <p className=" font-bold">Yangilik matni:</p> {blog.message}
+          </text>
           <br />
           <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2" onClick={() => handleClick(blog)}>O&apos;zgartirish</button>
           {isShown && (
-            <div className='flex flex-col justify-center'>
-              <label className="hover:bg-blue-200 bg-blue-100 p-2 rounded-md mx-auto border-1 text-black m-2" htmlFor="inputField">Rasm yuklash</label>
+            <div className='flex flex-col justify-center gap-2'>
+              <label className="cursor-pointer hover:bg-blue-200 bg-blue-100 p-2 rounded-md mx-auto border-1 text-black m-2" htmlFor="inputField">Rasm yuklash</label>
               {
                 !imgUrl &&
-                <div className='outerbar'>
+                <div className='outerbar py-2'>
                   <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
                     <div className="bg-blue-600 h-1.5 rounded-full dark:bg-blue-500 " style={{ width: progresspercent + "%" }}>{progresspercent}%</div>
                   </div>
                 </div>
 
               }
+             
               <input className="hidden" onChange={() => handleSubmit(event, blog.imageUrl)} id="inputField" type='file' aria-label="rasm kiriting" accept=".jpg, .jpeg, .png" />
-              <input className="border-1 m-2 text-black h-8" value={name} onChange={e => setName(e.target.value)} type='text' placeholder="yangilik nomi" />
-              <input className="border-1 m-2 text-black h-8" value={text} onChange={e => setText(e.target.value)} type='text' placeholder="yangilik matni" />
+              <Input className=" text-black h-8" value={name} onChange={e => setName(e.target.value)} type='text' placeholder="yangilik nomi" />
+               <Textarea  value={text} onChange={e => setText(e.target.value)} placeholder="yangilik matni" />
               <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2  mx-auto" onClick={() => onSubmit(event, blog)} type='submit'>serverga joylash</button>
-              
+              <button className='task__deleteButton' onClick={()=>handleDelete(blog.id)}>Delete</button>
             </div>
 
 
           )}
-
-          {/* 👇️ show component on click */}
-          {/* {isShown && <>texrt</>} */}
         </div> :
         <Loader />
       }
@@ -182,7 +194,7 @@ function BlogList() {
         <p>loading...</p>
       }
 
-      <ul className="grid grid-cols-1 gap-4 p-4 text-center sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="flex flex-col justify-center p-8 text-center">
         {countries.length > 0 && countries.map((blog, id) => (
 
           <BlogListItem key={id} blog={blog} />

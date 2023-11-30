@@ -38,7 +38,7 @@ export function Footer2(){
          <div id='footer' className="flex items-center justify-center py-8">
 
 
-      <div className="mapouter"><div className="gmap_canvas"><iframe src="https://maps.google.com/maps?q=40%C2%B027'25.2%22N%2068%C2%B046'18.4%22E&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" style={{width: 790, height: 500 }}></iframe>
+      <div className="mapouter"><div className="gmap_canvas"><iframe src="https://maps.google.com/maps?q=40.82704791336997,%2068.667169331836&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" style={{width: 790, height: 500 }}></iframe>
       <style>{`
       .mapouter{position:relative;height:400px;min-width:375px;background:#fff;}
       `}
@@ -47,6 +47,7 @@ export function Footer2(){
       <style>{`.gmap_canvas{overflow:hidden;height:400px;min-width:375px}.gmap_canvas iframe{position:relative;z-index:2}`}</style></div></div>
 
       </div>
+        
         
        
         <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800 pt-8">
@@ -68,14 +69,15 @@ export function Footer2(){
                     </ul>
                    <div className="flex flex-col ">
                             <p className="text-gray-500">
-                                Sirdaryo viloyat Mirzaobod tuman. M.Ulugbek maxallasi Pillakor kurgoni. Muljal: 25-Maktab
+                               Sirdaryo viloyati, Sirdaryo tumani, Bahor mahallasi, Ibn Sino ko&apos;chasi 17-uy
                             </p>
                            ____________________
                             <p className="text-gray-500">
-                                            Tezkor aloqa xizmati
-                                            67-310-41-54 
+                                            Faks: 67-377-21-75
                                             <br/>
-                                            Qabulxona 67-310-41-53
+                                            Qabulxona : 67-377-22-41
+                                            <br/>
+                                            E-pochta: sirdaryo_tibbiyot@exat.uz, sirdaryottb@gmail.com
                             </p>
                        </div>
               

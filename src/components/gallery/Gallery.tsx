@@ -98,15 +98,19 @@ export function Gallery3(){
     return(
         <>
         <Suspense>
+            <section className="flex flex-col justify-center content-center text-center">
             <h2 id='rahbariyat' className="text-3xl py-8">Rahbariyat</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4 max-w-[720px]">
-                <div>
-                    <Image className="hover:opacity-75" src={Direktor} alt={""} width={250} height={250}/>
+            {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4 max-w-[720px]"> */}
+            <div className="px-2 pt-4">
+                <div className="flex flex-col justify-center content-center text-center">
+                    <Image className="hover:opacity-75 ml-6" src={Direktor} alt={""} width={200} height={200}/>
                     <h3 className=" font-semibold">KODIROV SAN&apos;AT SALIMOVICH</h3>
                     <p className="text-gray-500">Bosh shifokor</p>
                     <p className="text-gray-500">Qabul vaqti 8:00-18:00</p>    
                 </div>
             </div>
+            </section>
+            
         </Suspense>
         </>
     )

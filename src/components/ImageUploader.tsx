@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { db, storage } from '../lib/firebase';
 import { doc, setDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';                        // random number
+import { Textarea } from "./ui/textarea";
+import { Input } from "./ui/input";
+import { Label } from "@radix-ui/react-dropdown-menu";
 
 
 
@@ -71,15 +74,16 @@ export default function ImageUploader() {
     }
 
     return (
-        <main className="flex flex-col items-center  p-24">
-            <div className="flex">
+        <main className="flex flex-col   p-24 w-auto">
+            <div className="">
                 {/* <form onSubmit={handleSubmit} className='flex flex-col justify-center'>
                     <input onChange={handleSubmit} type='file' />
                 </form> */}
-                <div className='flex flex-col justify-center'>
-                    <input onChange={handleSubmit} type='file' />
-                    <input className=" text-black" value={name} onChange={e => setName(e.target.value)} type='text' placeholder="name" />
-                    <input className=" text-black" value={text} onChange={e => setText(e.target.value)} type='text' placeholder="Text" />
+                <div className='flex flex-col justify-center gap-2'>
+                   <label className="hover:bg-blue-200 bg-blue-100 p-2 rounded-md mx-auto border-1 text-black m-2 cursor-pointer" htmlFor="inputField">Rasm yuklash</label>
+                    <Input id="inputField" name="inputField" className="hidden" onChange={handleSubmit} type='file' />
+                    <Input  className="text-black" value={name} onChange={e => setName(e.target.value)} type='text' placeholder="name" />
+                   <Textarea  value={text} onChange={e => setText(e.target.value)} placeholder="yangilik matni" />
                     <button hidden={loading} onClick={onSubmit} type='submit'>Upload</button>
 
                 </div>

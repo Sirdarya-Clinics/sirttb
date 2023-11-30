@@ -15,7 +15,7 @@ import Image from "next/image";
 export default class NextJsCarousel extends Component { 
     render() { 
         return ( 
-            <div className=""> 
+            <div className=" max-w-7xl"> 
               <Carousel infiniteLoop={true} autoPlay={true} showThumbs={false}> 
                <div> 
                       <Image src={Y6} alt="image2" /> 

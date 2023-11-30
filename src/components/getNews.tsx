@@ -19,9 +19,9 @@ export function BlogListItem(props: { blog: Blog }) {
   const { blog } = props
 //    console.log(blog)
   return (
-    <div className="">
+    <div className="max-w-xl hover:bg-gray-100">
       {blog.imageUrl ?
-        <Link href={`news/${blog.id}`} className=" hover:bg-gray-100">
+        <Link href={`news/${blog.id}`} className="">
           <Image className="object-contain mx-auto h-48 w-96 p-2" loading="lazy"  src={blog.imageUrl} width={300} height={300} alt="img" />
           <div className="font-semibold text-blue-500">{blog.date}</div>
           <p className="font-bold object-contain h-auto">{blog.name}</p>
