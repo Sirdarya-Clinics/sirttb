@@ -6,9 +6,6 @@ import { doc, setDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';                        // random number
 import { Textarea } from "./ui/textarea";
 import { Input } from "./ui/input";
-import { Label } from "@radix-ui/react-dropdown-menu";
-
-
 
 export default function ImageUploader() {
 

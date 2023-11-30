@@ -6,9 +6,15 @@ export default async function NewsPage() {
    
     return (
         <>
+       
             <Header2 />
-            <GetNews/>
+            <div className='flex flex-col  items-center '>
+                <GetNews/>
+            </div>
+            
             <Footer/>
+      
+            
         </>
     )
 }

@@ -10,7 +10,6 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Image from "next/image";
 import { useState, useEffect } from 'react'
 
-
 export default function BackendPage() {
 
 
@@ -87,7 +86,7 @@ function BlogListItem(props) {
     setIsShown(current => !current);
     setCurrentBlogData(blog)
 
-    console.log(blog)
+    //console.log(blog)
   };
 
   const onSubmit = async (event: Event | undefined, blog: Blog) => {
@@ -132,10 +131,10 @@ function BlogListItem(props) {
         <div className="content-center max-w-xl gap-5">
           <Image className="object-contain sm:ml-24 h-96 w-96" loading="lazy" src={blog.imageUrl} width={300} height={300} alt="img" />
           <div className="font-bold ">sana:<p className=" text-blue-500">{blog.date}</p></div>
-          <p><p className=" font-bold">Yangilik mavzusi:</p> {blog.name}</p>
-          <text className="object-contain h-48 w-48">
+          <div><p className=" font-bold">Yangilik mavzusi:</p> {blog.name}</div>
+        
             <p className=" font-bold">Yangilik matni:</p> {blog.message}
-          </text>
+        
           <br />
           <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2" onClick={() => handleClick(blog)}>O&apos;zgartirish</button>
           {isShown && (

@@ -81,6 +81,7 @@ export function Header2() {
                     <li>
               <a href="#hujjatlar">Hujjatlar</a>
                     </li>
+                    <li><a href="/news">Yangiliklar</a></li>
                     <li className="px-4">
                         <ModeToggle />
                     </li>
