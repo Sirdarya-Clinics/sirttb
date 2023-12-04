@@ -2,11 +2,12 @@ import { Footer2 } from "@/sections/Footer";
 import { Header2 } from "@/sections/Header";
 
 export default function RuPage() {
-    return(
+    return (
         <>
-        <Header2/>
-        руссча
-        <Footer2/>
+            <Header2 />
+            руссча
+            <Footer2 />
         </>
     )
 }
+

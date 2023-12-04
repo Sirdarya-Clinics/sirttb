@@ -16,7 +16,7 @@ export default function BackendPage() {
   return (
     <main className="flex flex-col items-center justify-center w-auto">
       <ImageUploader />
-      
+
       <BlogList />
     </main>
   )
@@ -117,11 +117,11 @@ function BlogListItem(props) {
 
   const handleDelete = async (id: string) => {
     const taskDocRef = doc(db, 'blogs', id)
-    try{
+    try {
       await deleteDoc(taskDocRef)
     } catch (err) {
       alert(err)
-    } finally{
+    } finally {
       alert('yangi ozgarishlarni korish uchun saxifani yangilang!')
     }
   }
@@ -132,9 +132,9 @@ function BlogListItem(props) {
           <Image className="object-contain sm:ml-24 h-96 w-96" loading="lazy" src={blog.imageUrl} width={300} height={300} alt="img" />
           <div className="font-bold ">sana:<p className=" text-blue-500">{blog.date}</p></div>
           <div><p className=" font-bold">Yangilik mavzusi:</p> {blog.name}</div>
-        
-            <p className=" font-bold">Yangilik matni:</p> {blog.message}
-        
+
+          <p className=" font-bold">Yangilik matni:</p> {blog.message}
+
           <br />
           <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2" onClick={() => handleClick(blog)}>O&apos;zgartirish</button>
           {isShown && (
@@ -149,12 +149,12 @@ function BlogListItem(props) {
                 </div>
 
               }
-             
+
               <input className="hidden" onChange={() => handleSubmit(event, blog.imageUrl)} id="inputField" type='file' aria-label="rasm kiriting" accept=".jpg, .jpeg, .png" />
               <Input className=" text-black h-8" value={name} onChange={e => setName(e.target.value)} type='text' placeholder="yangilik nomi" />
-               <Textarea  value={text} onChange={e => setText(e.target.value)} placeholder="yangilik matni" />
+              <Textarea value={text} onChange={e => setText(e.target.value)} placeholder="yangilik matni" />
               <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2  mx-auto" onClick={() => onSubmit(event, blog)} type='submit'>serverga joylash</button>
-              <button className='task__deleteButton' onClick={()=>handleDelete(blog.id)}>Delete</button>
+              <button className='task__deleteButton' onClick={() => handleDelete(blog.id)}>Delete</button>
             </div>
 
 
@@ -178,7 +178,7 @@ function BlogList() {
 
     setCountries([...res])
     setLoading(false)
-   
+
   }
 
   useEffect(() => {
