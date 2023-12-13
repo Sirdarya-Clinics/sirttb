@@ -1,25 +1,40 @@
 'use client'
 
+import { useRouter } from 'next/navigation';
+import { useAuth } from "../../providers/AuthContext"
 import ImageUploader from "@/components/ImageUploader"
 import Loader from "@/components/Loader"
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { db, findAll, storage } from "@/lib/firebase";
+import AuthProvider from "@/providers/AuthContext";
+import { Header } from "@/sections/Header";
 import { deleteDoc, doc, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Image from "next/image";
 import { useState, useEffect } from 'react'
 
 export default function BackendPage() {
-
-
-  return (
+  let router = useRouter();
+    const { currentUser } = useAuth();
+    useEffect(() => {
+        if (currentUser) {
+            void router.push('/login');
+        }
+        return;
+    }, [currentUser, router]);
+    return (
+      <>
+     <AuthProvider>
+    <Header/>
     <main className="flex flex-col items-center justify-center w-auto">
       <ImageUploader />
       
       <BlogList />
     </main>
-  )
+    </AuthProvider>
+    </>
+    )
 }
 
 
@@ -126,9 +141,9 @@ function BlogListItem(props) {
     }
   }
   return (
-    <li className="">
+    <li className="rounded-md border-2 border-gray-400 mt-8">
       {blog.imageUrl ?
-        <div className="content-center max-w-xl gap-5">
+        <div className="content-center max-w-xl gap-5 m-4">
           <Image className="object-contain sm:ml-24 h-96 w-96" loading="lazy" src={blog.imageUrl} width={300} height={300} alt="img" />
           <div className="font-bold ">sana:<p className=" text-blue-500">{blog.date}</p></div>
           <div><p className=" font-bold">Yangilik mavzusi:</p> {blog.name}</div>
@@ -153,7 +168,7 @@ function BlogListItem(props) {
               <input className="hidden" onChange={() => handleSubmit(event, blog.imageUrl)} id="inputField" type='file' aria-label="rasm kiriting" accept=".jpg, .jpeg, .png" />
               <Input className=" text-black h-8" value={name} onChange={e => setName(e.target.value)} type='text' placeholder="yangilik nomi" />
                <Textarea  value={text} onChange={e => setText(e.target.value)} placeholder="yangilik matni" />
-              <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2  mx-auto" onClick={() => onSubmit(event, blog)} type='submit'>serverga joylash</button>
+              <button className="rounded-md border-2 border-gray-700 hover:bg-gray-300 p-2  mx-auto" onClick={() => onSubmit(event, blog)} type='submit'>serverga saqlash</button>
               <button className='task__deleteButton' onClick={()=>handleDelete(blog.id)}>Delete</button>
             </div>
 

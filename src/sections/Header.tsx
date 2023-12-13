@@ -111,3 +111,48 @@ export function Header2() {
         </div>
     );
 }
+
+
+
+export function Header(){
+    const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
+
+    return (
+        <div className="flex items-center  border-b border-gray-400 py-8 m-4 dark:bg-gray-900">
+        <div className="hidden md:flex">
+          <a className="items-center justify-center px-4" href="/">
+            <Logo />
+
+          </a>
+          <div className="flex justify-center content-center font-sans font-semibold text-3xl">
+           <h1> ADMIN PANEL</h1>
+          </div> 
+
+                    <p className="px-4">
+                        <ModeToggle />
+                    </p>
+          </div>
+           
+            <style>{`
+      .hideMenuNav {
+        display: none;
+      }
+      .showMenuNav {
+        display: block;
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+      
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+    `}</style>
+        </div>
+    );
+}
