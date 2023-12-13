@@ -2,9 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Inter as FontSans } from "next/font/google"
 import { cn } from '@/lib/utils'
-import { Header2 } from '@/sections/Header'
-import Footer, { Footer2 } from '@/sections/Footer'
-import { Toaster } from "@/components/ui/toaster"
+
 
 import { ThemeProvider } from "@/components/theme/theme-provider"
 
@@ -40,7 +38,6 @@ export default function RootLayout({
         >
           {/* <Header2/> */}
           {children}
-          <Toaster />
           {/* <Footer/> */}
           {/* <Footer2/> */}
         </ThemeProvider>

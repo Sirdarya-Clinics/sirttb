@@ -2,42 +2,72 @@
 
 import * as React from "react"
 import { ModeToggle } from "@/components/theme/theme-provider"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Logo from "@/components/Logo"
 import { LanguageChanger } from "@/components/Lang"
 
 
 
 
-export function Header2() {
+export function Header2(lang) {
+    console.log(lang)
+    const [useLang, setLang] = useState({
+        "header": "Sirdaryo tuman tibbiyot birlashmasi",
+        "about": "Biz haqimizda",
+        "open_data": "Ochiq malumotlar",
+        "contact": "Bog&apos;lanish"
+
+    })
+    useEffect(() => {
+        if (lang === 'ru') {
+            setLang({
+                "header": "Сырдарьинское районное медицинское объединение",
+                "about": "О нас",
+                "open_data": "Открытые данные",
+                "contact": "Контакты"
+            })
+        } else if (lang === 'en') {
+            setLang({
+                "header": "Syrdarya regional medical association",
+                "about": "About Us",
+                "open_data": "Open data",
+                "contact": "Contacts"
+            })
+        }
+        console.log(useLang)
+    }, [lang]);
+
+
+
+
     const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
 
     return (
         <div className="flex items-center justify-between border-b border-gray-400 py-8 m-4 dark:bg-gray-900">
-        <div className="hidden md:flex">
-          <a className="items-center justify-center px-4" href="/">
-            <Logo />
+            <div className="hidden md:flex">
+                <a className="items-center justify-center px-4" href="/">
+                    <Logo />
 
-          </a>
-          <div className="font-sans font-semibold text-3xl">
-           <h1> Sirdaryo tuman tibbiyot birlashmasi</h1>
-          </div> 
+                </a>
+                <div className="font-sans font-semibold text-3xl">
+                    <h1> {useLang.header}</h1>
+                </div>
 
 
-          </div>
-           
-          <nav>
+            </div>
+
+            <nav>
                 <section className="MOBILE-MENU flex lg:hidden mx-4">
-                    {isNavOpen || 
-                    <div
-                        className="HAMBURGER-ICON space-y-2"
-                        onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
-                    >
-                        <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-                        <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-                        <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-                    </div>}
-                    
+                    {isNavOpen ||
+                        <div
+                            className="HAMBURGER-ICON space-y-2"
+                            onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
+                        >
+                            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
+                            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
+                            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
+                        </div>}
+
 
                     <div className={isNavOpen ? "showMenuNav dark:bg-slate-950" : "hideMenuNav"}>
                         <div
@@ -59,13 +89,13 @@ export function Header2() {
                         </div>
                         <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
                             <li className="border-b border-gray-400 my-8 uppercase">
-                                <a onClick={() => setIsNavOpen(false)} href="#about">Biz haqimizda</a>
+                                <a onClick={() => setIsNavOpen(false)} href="#about">{useLang.about}</a>
                             </li>
                             <li className="border-b border-gray-400 my-8 uppercase">
-                                <a onClick={() => setIsNavOpen(false)} href="#hujjatlar">Ochiq malumotlar</a>
+                                <a onClick={() => setIsNavOpen(false)} href="#hujjatlar">{useLang.open_data}</a>
                             </li>
                             <li className="border-b border-gray-400 my-8 uppercase">
-                  <a onClick={() => setIsNavOpen(false)} href="#footer">Bog&apos;lanish</a>
+                                <a onClick={() => setIsNavOpen(false)} href="#footer">{useLang.contact}</a>
                             </li>
                         </ul>
                     </div>
@@ -73,20 +103,20 @@ export function Header2() {
 
                 <ul className="DESKTOP-MENU hidden space-x-8 lg:flex ">
                     <li>
-              <a href="#about">Biz haqimizda</a>
+                        <a href="#about">Biz haqimizda</a>
                     </li>
                     <li>
                         <a href="#footer">Manzil</a>
                     </li>
                     <li>
-              <a href="#hujjatlar">Hujjatlar</a>
+                        <a href="#hujjatlar">Hujjatlar</a>
                     </li>
                     <li><a href="/news">Yangiliklar</a></li>
                     <li className="px-4">
                         <ModeToggle />
                     </li>
                 </ul>
-                 <LanguageChanger />
+                <LanguageChanger />
             </nav>
             <style>{`
       .hideMenuNav {

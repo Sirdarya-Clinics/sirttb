@@ -6,15 +6,27 @@ import { ModeToggle } from "@/components/theme/theme-provider"
 import { useState } from "react"
 import Logo from "@/components/Logo"
 import { LanguageChanger } from "@/components/Lang"
+import { About } from "@/components/About";
+import { Questions } from "@/components/Questions";
+import Carusel from "@/components/carusel";
+import Gallery, { Gallery3 } from "@/components/gallery/Gallery";
+import { GetNews } from "@/components/getNews";
+import { Footer2 } from "@/sections/Footer";
+import { Header2 } from "@/sections/Header";
+import { Suspense } from "react";
+import bg from "../../../public/page-bg.jpg";
+import Image from "next/image";
 
 
 export default function RuPage() {
-    return(
+    return (
         <>
+
         
         <Header/>
         russ
         <Footer/>
+
         </>
     )
 }
