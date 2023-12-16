@@ -5,6 +5,7 @@ import { ModeToggle } from "@/components/theme/theme-provider"
 import { useEffect, useState } from "react"
 import Logo from "@/components/Logo"
 import { LanguageChanger } from "@/components/Lang"
+import { Logout } from "@/components/LogOut"
 
 
 
@@ -156,13 +157,14 @@ export function Header(){
           </a>
           <div className="flex justify-center content-center font-sans font-semibold text-3xl">
            <h1> ADMIN PANEL</h1>
+          
           </div> 
 
                     <p className="px-4">
                         <ModeToggle />
                     </p>
           </div>
-           
+            
             <style>{`
       .hideMenuNav {
         display: none;
@@ -183,6 +185,7 @@ export function Header(){
         align-items: center;
       }
     `}</style>
+    <Logout/>
         </div>
     );
 }

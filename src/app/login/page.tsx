@@ -1,12 +1,9 @@
 'use client';
 
-import { signInWithRedirect, getAuth } from 'firebase/auth';
-import { provider } from '../../lib/firebase';
-import { Suspense, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { Suspense, useEffect, useLayoutEffect, useState } from 'react';
+import { redirect, useRouter } from 'next/navigation';
 import AuthProvider, { useAuth } from '../../providers/AuthContext';
 import Loader from '@/components/Loader';
-
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -16,19 +13,19 @@ export default function SignIn() {
 
   const { login, currentUser } = useAuth();
 
-  const auth = getAuth();
+  const auth = useAuth();
   let router = useRouter();
-
-//   if (currentUser) {
-//     router.push('/cabinet');
-//   }
-
+  //redirect
+ if(auth.currentUser){
+             redirect('/backend')
+          }
+//redirect
    function submitHandler() {
     if (!email || !password) {
       setError('Please enter email and password');
       return;
     }
-    if (isLoggingIn) {
+    if (true) {
        login(email, password)
       return;
     }
@@ -74,7 +71,9 @@ export default function SignIn() {
             onClick={() => setIsLoggingIn(!isLoggingIn)}
           >
           </h2>
+          
         </div>
+        
       </Suspense>
       </AuthProvider>
     </>

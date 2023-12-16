@@ -5,16 +5,19 @@ import {
   onAuthStateChanged,
   UserCredential,
   User,
+  signOut,
 } from 'firebase/auth';
 
 type MovieContextType = {
   currentUser: any;
   login: any;
+  logout: any;
 };
 
 const AuthContext = createContext<MovieContextType>({
   currentUser: Promise<User>,
-  login: Promise<UserCredential>
+  login: Promise<UserCredential>,
+   logout: Promise<void>
 });
 
 export function useAuth() {
@@ -32,6 +35,9 @@ export default function AuthProvider({
   function login(email: string, password: string) {
     return signInWithEmailAndPassword(auth, email, password);
   }
+   function logout() {
+    return signOut(auth);
+  }
 
   
 
@@ -46,6 +52,7 @@ export default function AuthProvider({
   const value = {
     currentUser,
     login,
+    logout
   };
 
   return (
