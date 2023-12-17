@@ -1,18 +1,16 @@
-'use client'
-import type { Metadata } from 'next'
-import './globals.css'
-import { Inter as FontSans } from "next/font/google"
-import { cn } from '@/lib/utils'
+"use client";
+import type { Metadata } from "next";
+import "./globals.css";
+import { Inter as FontSans } from "next/font/google";
+import { cn } from "@/lib/utils";
 
-
-import { ThemeProvider } from "@/components/theme/theme-provider"
-import AuthProvider from '@/providers/AuthContext'
-
+import { ThemeProvider } from "@/components/theme/theme-provider";
+import AuthProvider from "@/providers/AuthContext";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-})
+});
 
 // export const metadata: Metadata = {
 //   title: 'Sirdaryo tuman tibbiyot birlashmasi',
@@ -23,29 +21,28 @@ export const fontSans = FontSans({
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="uz" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <head />
-      <body className={cn(
-        "min-h-screen font-sans antialiased",
-        fontSans.variable
-      )}>
+      <body
+        className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
-           <AuthProvider>
-          {/* <Header2/> */}
-          {children}
-          {/* <Footer/> */}
-          {/* <Footer2/> */}
+          <AuthProvider>
+            {/* <Header2/> */}
+            {children}
+            {/* <Footer/> */}
+            {/* <Footer2/> */}
           </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

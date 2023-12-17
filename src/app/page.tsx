@@ -1,56 +1,71 @@
-import Gallery, { Gallery3 } from "@/components/gallery/Gallery"
-import Image from "next/image"
+import Gallery, { Gallery3 } from "@/components/gallery/Gallery";
+import Image from "next/image";
 import bg from "../../public/page-bg.jpg";
 import Carusel from "@/components/carusel";
-// import Protokol from "../../public/protokol.jpg";
-// import Qarori from "../../public/qarori.jpg";
-// import Nizomi from "../../public/nizomi.jpg";
-// import Klinik from "../../public/klinik.jpg";
-// import Narxlar from "../../public/narxlar.jpg";
-// import Link from "next/link";
 import { Questions } from "@/components/Questions";
 import { About } from "@/components/About";
 import { Suspense } from "react";
 import { GetNews } from "@/components/getNews";
-import { Header2 } from "@/sections/Header";
+import { HeaderUz } from "@/sections/Header";
 import Footer, { Footer2 } from "@/sections/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sirdaryo tuman tibbiyot birlashmasi",
+  description: "Sirdaryo tuman tibbiyot birlashmasi, sirdarya ttb, ssv",
+  keywords: [
+    "ttb",
+    "sogliqni saqlash",
+    "sirdaryo",
+    "tibbiyot",
+    "salomatlik",
+    "bolnitsa sirdaryo",
+    "bolnitsa",
+    "klinika",
+    "kasalliklar",
+    "viloyat",
+    "infeksion",
+    "sirdaryo tuman",
+    "tibbiyot birlashmasi",
+    "Sirdaryo tuman tibbiyot birlashmasi",
+  ],
+};
+
 export default function Home() {
   return (
     <>
-      <Header2 />
+      <HeaderUz />
 
       <Image
         className="hidden md:flex"
         width={0}
         height={0}
         src={bg}
-        alt="background_picture" />
+        alt="background_picture"
+      />
       <div className="flex flex-col w-full bg-gradient-to-r from-red-400  to-blue-600 p-4 py-20 sm:px-20 sm:flex-row justify-between items-center">
         <p className=" text-white">
-          <span className="text-4xl font-medium">Biz bilan bog&apos;lanmoqchimisiz?</span>
+          <span className="text-4xl font-medium">
+            Biz bilan bog&apos;lanmoqchimisiz?
+          </span>
           <br />
           <span className="text-lg">Hoziroq bog&apos;laning ! </span>
         </p>
         <div className="font-medium  pt-4  dark:text-white">
-
-
-
           <div className=" text-white grid gap-4">
             <h4 className="font-medium leading-none">Faks:</h4>
             <p className="text-white text-sm text-muted-foreground">
-             67-377-21-75
+              67-377-21-75
             </p>
           </div>
           <div className="text-white grid gap-4">
             <h4 className="font-medium  pt-4 leading-none"> Qabulxona </h4>
             <p className=" text-white text-sm text-muted-foreground">
-             67-377-22-41
+              67-377-22-41
             </p>
           </div>
-
         </div>
       </div>
-
 
       <main className="flex min-h-screen max-w-auto flex-col items-center justify-between sm:p-24">
         <Carusel />
@@ -64,9 +79,7 @@ export default function Home() {
 
         <Questions />
 
-
         <Gallery3 />
-
 
         {/* <h2 className=" pt-8 text-3xl">Meyoriy hujjatlar</h2>
         <section id="hujjatlar" className="flex flex-row justify-center gap-4 py-8">
@@ -90,6 +103,5 @@ export default function Home() {
       </main>
       <Footer2 />
     </>
-
-  )
+  );
 }

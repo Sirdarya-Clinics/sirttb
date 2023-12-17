@@ -19,6 +19,7 @@
     "firebase": "^10.7.0",
     "lucide-react": "^0.291.0",
     "next": "14.0.1",
+    "next-seo": "^6.4.0",
     "next-themes": "^0.2.1",
     "overwrite": "^1.0.3",
     "react": "^18",
