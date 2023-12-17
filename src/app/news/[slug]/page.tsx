@@ -9,7 +9,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getData();
   const obj = { ...data }.props;
   const filtered: any[] = obj.filter((item) => item.id == params.slug);
-  //console.log(obj.filter((item) => item.id == params.slug))
   if (params.slug.length < 36) {
     // This will activate the closest `error.js` Error Boundary
     return <ErrorPage />;
@@ -24,7 +23,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <h2>&#8592;Ortga qaytish</h2>
         </Link>
 
-        {/* <div>My Post: {params.slug}</div> */}
         <br />
         <Image
           className="object-contain  sm:p-16 lg:p-16"
